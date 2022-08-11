@@ -1,0 +1,30 @@
+import { roomModel } from '@models/room.model';
+import { commentModel } from '@models/comment.model';
+import { playerModel } from '@models/players.model';
+import { menusModel } from '@models/menus.model';
+import { documentModel } from '@models/document.model';
+import { countdownModel } from '@models/countdown.model';
+import { lotteryModel } from '@models/lottery.model';
+import { questionnaireModel } from '@models/questionnaire.model';
+import { streamViewModel } from '@models/stream-view.model';
+import { userModel } from '@models/user.model';
+import { basisModel } from '@models/basis.model';
+import { State } from '@core/state';
+import { eventEmitterModel } from '@models/event-emitter.model';
+import { announcementModel } from '@models/announcement.model';
+
+export const Announcement = announcementModel;
+export const Basis = basisModel;
+export const Comment = commentModel;
+export const Countdown = countdownModel;
+export const Document = documentModel;
+export const Lottery = lotteryModel;
+export const Menus = menusModel;
+export const Player = playerModel;
+export const Questionnaire = questionnaireModel;
+export const Room = roomModel;
+export const StreamView = streamViewModel;
+export const User = userModel;
+export const Event = eventEmitterModel;
+
+export { State };

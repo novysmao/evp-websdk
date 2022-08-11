@@ -1,0 +1,59 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "./typings",
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "moduleResolution": "Node",
+    "alwaysStrict":true,
+    "module": "esnext",
+    "target": "es5",
+    "lib": [
+      "ES5",
+      "ES6",
+      "ES7",
+      "ES2017",
+      "ES2018",
+      "ESNext",
+      "DOM",
+      "ScriptHost"
+    ],
+    "paths": {
+      "@core/*": [
+        "src/core/*"
+      ],
+      "@backends/*": [
+        "src/backends/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@type/*": [
+        "src/types/*"
+      ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

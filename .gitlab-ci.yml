@@ -1,0 +1,23 @@
+image: node:12.16
+
+cache:
+  paths:
+    - node_modules
+
+stages:
+    - build
+
+build:
+  stage: build
+  only:
+    refs:
+      - tags
+  script:
+    - git config --global url.'https://guest:1ss4RhMgtWgibCgD1SWU@git.mudu.tv/'.insteadOf 'ssh://git@git.mudu.tv/'
+    - npm ci
+    - npm run clean
+    - npm run build:min
+    - node scripts/zip-player-assets.js
+    - node scripts/upload.js
+    - node scripts/refresh-cdn-cache.js
+  when: manual

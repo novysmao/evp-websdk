@@ -1,0 +1,84 @@
+{
+  "name": "evp-websdk",
+  "version": "0.0.12",
+  "description": "evp websdk",
+  "main": "dist/index.js",
+  "module": "es/index.js",
+  "types": "typings/index.d.ts",
+  "dependencies": {
+    "archiver": "5.3.0",
+    "eventemitter3": "4.0.7",
+    "http-stream-detect": "git+ssh://git@git.mudu.tv/front-end/http-stream-detect.git",
+    "immer": "8.0.0",
+    "lodash": "4.17.20",
+    "mudu-player": "git+ssh://git@git.mudu.tv/front-end/mudu-player.git#v0.37.1",
+    "qs": "6.9.4",
+    "qs-stringify": "1.2.1",
+    "rxjs": "6.6.3",
+    "websocket-nats": "git+ssh://git@git.mudu.tv/front-end/websocket-nats.git",
+    "websocket-protobuf": "git+ssh://git@git.mudu.tv/front-end/websocket-protobuf.git"
+  },
+  "devDependencies": {
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-typescript": "7.12.7",
+    "@rollup/plugin-babel": "5.2.2",
+    "@rollup/plugin-commonjs": "17.0.0",
+    "@rollup/plugin-node-resolve": "11.0.1",
+    "@typescript-eslint/eslint-plugin": "4.8.2",
+    "@typescript-eslint/parser": "4.8.2",
+    "ali-cdn-url": "1.0.1",
+    "ali-oss": "6.11.2",
+    "eslint": "7.14.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prefer-arrow": "1.2.2",
+    "husky": "4.3.0",
+    "lint-staged": "10.5.2",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.2.0",
+    "readdir": "1.0.2",
+    "request": "2.88.2",
+    "rimraf": "3.0.2",
+    "rollup": "2.33.3",
+    "rollup-plugin-analyzer": "3.3.0",
+    "rollup-plugin-babel": "4.4.0",
+    "rollup-plugin-dev": "1.1.3",
+    "rollup-plugin-eslint": "7.0.0",
+    "rollup-plugin-node-globals": "1.4.0",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-typescript2": "0.29.0",
+    "tslib": "2.0.3",
+    "typescript": "4.1.2"
+  },
+  "scripts": {
+    "lint": "eslint src/**/*.{js,ts} --fix",
+    "start": "npm run watch:esm",
+    "watch:esm": "rollup -w -c --environment FORMAT:esm,BUILD:dev",
+    "watch:umd": "rollup -w -c --environment FORMAT:umd,BUILD:dev",
+    "watch:min": "rollup -w -c --environment FORMAT:min,BUILD:dev",
+    "build:esm": "rollup -c --environment FORMAT:esm,BUILD:prod",
+    "build:umd": "rollup -c --environment FORMAT:umd,BUILD:prod",
+    "build:min": "rollup -c --environment FORMAT:min,BUILD:prod",
+    "build": "npm run clean && run-p build:esm build:umd build:min",
+    "analysis": "rollup -c --environment FORMAT:esm,ANALYSIS",
+    "clean": "rimraf dist && rimraf es"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{js,ts,json,css,less,md}": [
+      "eslint 'src/**/*.{js,ts}' --fix",
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "evp",
+    "web",
+    "sdk"
+  ],
+  "author": "mudu",
+  "license": "ISC"
+}
