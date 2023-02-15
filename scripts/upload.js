@@ -4,9 +4,9 @@ const readdir = require('readdir')
 const { version } = require('../package.json');
 
 const client = new OSS({
-  region: process.env.OSS_REGION || 'oss-cn-hangzhou',
-  accessKeyId: process.env.OSS_ID || 'TApKg3jxf7Myf7I1',
-  accessKeySecret: process.env.OSS_SECRET || 'KPq7vrowBbkuD7DsIDMH9c7WcTeucR',
+  region: process.env.OSS_REGION,
+  accessKeyId: process.env.OSS_ID,
+  accessKeySecret: process.env.OSS_SECRET,
   bucket: 'mudustatic'
 })
 
