@@ -3,12 +3,12 @@ const request = require('request');
 
 const pubArgs = {
   Format: 'JSON',
-  AccessKeyId: process.env.OSS_ID || 'TApKg3jxf7Myf7I1',
-  AccessKeySecret: process.env.OSS_SECRET || 'KPq7vrowBbkuD7DsIDMH9c7WcTeucR',
+  AccessKeyId: process.env.OSS_ID,
+  AccessKeySecret: process.env.OSS_SECRET,
 };
 
 const otherArgs = {
-  ObjectPath: 'static.mudu.tv/evp-websdk/latest/',
+  ObjectPath: process.env.OBJECT_PATH,
   Action: 'RefreshObjectCaches',
   ObjectType: 'Directory'
 };
